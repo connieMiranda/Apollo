@@ -1,0 +1,2 @@
+This is a file testing to see if we can both push and pull our files. -Connie
+Edit below with your own text to confirm you too can push and pull from git.

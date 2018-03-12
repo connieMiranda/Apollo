@@ -2,26 +2,26 @@
 #include<stdio.h>
 #include<math.h>
 
-#define PI=3.141592;
-#define deg2rad=PI/180;
+#define PI 3.141592;
+#define deg2rad PI/180;
 
 /*---------------------------------*/
 
 /*--------Global Variables---------*/
-
-double G=6.67408e-11;
-double mM=7.34767309e22;
-double mE=5.97219e24;
-int mS=28833;
-int rM=1737100;
-int rE=6371000;
+/*All variables are in SI units*/
+double G=6.67408e-11; /*Gravity constant*/
+double mM=7.34767309e22;/*Mass of moon*/
+double mE=5.97219e24;/*Mass of earth*/
+int mS=28833;/*Mass of sat*/
+int rM=1737100;/*Radius of moon*/
+int rE=6371000;/*Radius of earth*/
 
 /*---------------------------------*/
 
 /*--------Sub Functions------------*/
 void calcF(xS,yS,xM,yM) /*Calculates forces between all three bodies*/
 {
-double dSE=sqrt(xS*xS+yS*yS);
+double dSE=sqrt(xS*xS+yS*yS);/*Distance from sat to Earth*/
 double dME=sqrt(xM*xM+yM*yM);
 double dSM=sqrt(pow(xS-xM,2)+pow(yS-yM,2));
 double xFSE=-G*mS*mE*xS/pow(dSE,3);
@@ -36,7 +36,7 @@ int checkImpact(xS,yS,xM,yM) /*Checks if any of the bodies have impacted*/
 {
 sM=sqrt(xM*xM+yM*yM);
 sS=sqrt(xS*xS+yS*yS);
-sS2M=ss-sM;
+sS2M=sS-sM;
 int impact=0;
 if (sS<=rE)
 {
